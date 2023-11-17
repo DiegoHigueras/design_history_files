@@ -45,8 +45,9 @@ def compress_video(input_path, output_path, target_size_mb, tolerance_percentage
         print(f"Error compressing video: {e}")
 
 # Example usage
-input_video_path = "/Users/diegohiguerasruiz/NO_git_files/Bioinspired_projects/Human_hand/mov_src/Screen Recording 2023-11-13 at 10.52.52 AM.mov"
-output_video_path = "./mov_src/compressed_video_adjusted.mp4"
+file = "Screen Recording 2023-11-17 at 11.38.45 AM.mov"
+input_video_path = "/Users/diegohiguerasruiz/NO_git_files/Bioinspired_projects/Human_hand/mov_src/"+ file
+output_video_path = "./mov_src/" + file
 
 # Input the desired file size in megabytes
 desired_file_size_mb = 1  # Change this to your desired size
