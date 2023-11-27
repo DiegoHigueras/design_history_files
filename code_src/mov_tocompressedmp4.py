@@ -3,7 +3,7 @@ import subprocess
 import tempfile
 import shutil
 
-def compress_video(input_path, output_path, target_size_mb, tolerance_percentage=20):
+def compress_video(input_path, output_path, target_size_mb, tolerance_percentage=1):
     try:
         # Start with a conservative guess for the bitrate
         target_bitrate = 8 * target_size_mb
@@ -33,7 +33,7 @@ def compress_video(input_path, output_path, target_size_mb, tolerance_percentage
                 break
             elif actual_size > target_size_mb:
                 # If the actual size is larger, reduce the bitrate
-                target_bitrate *= 0.5
+                target_bitrate *= 0.1
             else:
                 # If the actual size is smaller, increase the bitrate
                 target_bitrate *= 3
@@ -45,9 +45,9 @@ def compress_video(input_path, output_path, target_size_mb, tolerance_percentage
         print(f"Error compressing video: {e}")
 
 # Example usage
-file = "Screen Recording 2023-11-17 at 11.38.45 AM.mov"
-input_video_path = "/Users/diegohiguerasruiz/NO_git_files/Bioinspired_projects/Human_hand/mov_src/"+ file
-output_video_path = "./mov_src/" + file
+file = "Screen Recording 2023-11-26 at 8.34.15 PM.mov"
+input_video_path = "/Users/diegohiguerasruiz/Downloads/"+ file
+output_video_path = "./mov_src/" + os.path.splitext(file)[0] + ".mp4"
 
 # Input the desired file size in megabytes
 desired_file_size_mb = 1  # Change this to your desired size
